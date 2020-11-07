@@ -1,0 +1,163 @@
+@import 'normalize';
+@import 'variables';
+@import 'mixins';
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    font-family: $ff;
+    font-weight: 300;
+}
+
+body {
+    font: 300 1.6rem/1.5 $ff;
+    color: $dark;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.section {
+    padding: 110px 0;
+    text-align: center;
+    &--bg {
+        color: $light;
+        background-color: $brand;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    &__wrap {
+        padding: 30px 120px;
+        &--bordered {
+            border: $b-width solid $dark;
+            border-top: 0;
+            position: relative;
+            padding-top: 0;
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                width: 25%;
+                border-top: $b-width solid $dark;
+            }
+            &::before {
+                left: -$b-width;
+            }
+            &::after {
+                right: -$b-width;
+            }
+            .section--bg & {
+                border-color: $light;
+                &::before, 
+                &::after {
+                    content: '';
+                    border-color: $light;
+                }
+            }
+        }
+    }
+    &__title,
+    &__subtitle {
+        text-transform: uppercase;
+    }
+    &__title {
+        letter-spacing: .16em;
+        .section__wrap--bordered & {
+            transform: translate(0, -50%);
+            padding: 0 20%;
+        }
+    }
+    &__subtitle {
+        font-weight: 400;
+        font-size: 1.5rem;
+    }
+}
+
+header {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+h1 {
+    font-size: 5.4rem;
+}
+
+h2 {
+    font-size: 3.4rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+.logo {
+    &--light {
+        stroke: $light;
+        fill: $light; 
+    }
+    &--dark {
+        stroke: $dark;
+        fill: $dark;
+    }
+}
+
+.scroll {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    fill: $light;
+    @include hover {
+        fill: $dark;
+    }
+}
+
+.service {
+    margin: 80px 0;
+    &__title {
+        text-transform: uppercase;
+        margin: 30px 0;
+        letter-spacing: .16em;
+    }
+    svg {
+       fill: $dark; 
+    }
+}
+
+.btn {
+    text-transform: uppercase;
+    outline: none;
+    border: $b-width solid $dark;
+    background-color: $dark;
+    color: $light;
+    padding: 20px;
+    margin: 30px;
+    font-weight: 400;
+    letter-spacing: .16em;
+    width: 400px;
+    max-width: 60%;
+    cursor: pointer;
+    @include hover {
+        color: $dark;
+        background-color: $light;
+    }
+}
+
+.copyright {
+    margin-top: 110px;
+    font-weight: 400;
+    &__text {}
+    svg {
+        vertical-align: middle;
+    }
+}

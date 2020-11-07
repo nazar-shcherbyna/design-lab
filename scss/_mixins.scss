@@ -1,0 +1,13 @@
+@mixin tr {
+    transition: all .3s ease-in-out; 
+}
+
+@mixin hover {
+    @include tr;
+    &:hover,
+    &:focus,
+    &:active {
+        @content;
+        @include tr;
+    }
+}
